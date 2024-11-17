@@ -1,0 +1,151 @@
+.custom-bg-dark-light {
+    background-color: #2b2b2b; /* Example color, adjust as needed */
+    color: #f8f9fa; /* Light text for contrast */
+}
+
+body {
+    margin: 0;
+    /* height: 100vh; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    background: linear-gradient(135deg, #1a1a1a, #3a3a3a);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    background-attachment: fixed;
+    /* overflow: hidden; */
+
+    /* text-align: center; */
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.transparent-bg {
+    background-color: rgba(255, 255, 255, 0.1); /* White background with 80% opacity */
+    /* border-radius: 8px; // Optional: rounded corners */
+    padding: 20px; /* Optional: padding inside the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+
+.theme-img {
+    flex: 1 1 100%; /* 25% width on larger screens */
+    max-width: 100%; /* Prevent overflow */
+    padding-left: 10px; /* Optional: add space between the content */
+}
+
+.theme-img img {
+    max-width: 100%; /* Make sure the image fits within its container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.rules {
+    flex: 1 1 100%; /* Default to full width */
+}
+
+@media (min-width: 768px) {
+    .rules {
+        flex: 0 0 70%; /* 75% width on larger screens */
+    }
+    .theme-img {
+        flex: 0 0 30%;
+    }
+}
+
+.responsive-image {
+    width: 100%; /* Default to full width */
+}
+
+@media (min-width: 768px) { /* For larger screens */
+    .responsive-image {
+        width: 25%; /* 25% width on larger screens */
+        float: right; /* Align to the right */
+    }
+}
+
+.animated-image {
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+.animated-image:hover {
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+/* Optional: Adding a simple animation */
+/* @keyframes floating {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+} */
+
+
+
+
+.card {
+    width: 10rem;
+    margin: 0 auto;
+}
+.carousel-item {
+    display: flex;
+    justify-content: center;
+}
+.sponsor-container {
+    max-width: 80%; /* Restrict to 80% on large screens */
+}
+
+@media (max-width: 576px) {
+    /* On mobile, keep the carousel item width limited */
+    .sponsor-container {
+        max-width: 100%; /* Full-width on mobile */
+    }
+    img{
+        padding-bottom: 5px;
+    }
+}
+
+/* Main body container */
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    /* Reverse the order of content only in the main body on mobile screens */
+    .main-content {
+        flex-direction: column;
+    }
+    .rules {
+        order: 2; /* Moves rules section below the image */
+    }
+    .theme-img {
+        order: 1; /* Moves image section to the top */
+    }
+}
+
+
+.about_live {
+    flex: 0 0 100%; /* 75% width on larger screens */
+}
+
+.embed-responsive {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+}
+
+.embed-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.navbar-toggler {
+    border-color: transparent; /* Make the border invisible if desired */
+}
+
+.toggler-icon {
+    filter: invert(100%);
+}
