@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets Data</title>
+</head>
+<body>
+    <h1>Data from Google Sheets</h1>
+    <div id="sheetData"></div>
+
+    <script>
+        // Your Google Sheets CSV link
+        const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRJiRsxinjWPV1tkOUtTjTMJSkFB4Z2mx_QHMuswdC4-ULhFPLyrvO5IT4ER2ERkji1wnwQF_x4-HF7/pub?gid=0&single=true&output=csv";
+
+        // Function to fetch and parse CSV data
+        fetch(csvUrl)
+            .then(response => response.text())
+            .then(csvData => {
+                const rows = csvData.split("\n");
+                let html = '<table border="1">';
+
+                // Loop through each row and create HTML table rows
+                rows.forEach((row, index) => {
+                    const columns = row.split(",");
+                    html += "<tr>";
+                    columns.forEach(column => {
+                        // Use <th> for headers (first row), <td> for other rows
+                        if (index === 0) {
+                            html += `<th>${column}</th>`;
+                        } else {
+                            html += `<td>${column}</td>`;
+                        }
+                    });
+                    html += "</tr>";
+                });
+                html += "</table>";
+
+                // Display the table in the HTML div
+                document.getElementById("sheetData").innerHTML = html;
+            })
+            .catch(error => console.error("Error fetching CSV data:", error));
+    </script>
+</body>
+</html>
